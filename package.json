@@ -3,7 +3,7 @@
 	"displayName": "graphql-schema-to-typescript",
 	"description": "Simple Generate a typescript interface based on your graphql type",
 	"version": "0.0.1",
-	"publisher": "BigCat",
+	"publisher": "liyikunl",
 	"engines": {
 		"vscode": "^1.37.0"
 	},

@@ -3,7 +3,7 @@
 > extends by https://github.com/dangcuuson/graphql-schema-typescript
 
 
-![avatar](https://github.com/liyikun/vscode-graphql-schema-typescript/blob/master/image/test.gif)
+![test](https://raw.githubusercontent.com/liyikun/vscode-graphql-schema-typescript/master/image/test.gif)
 
 
 ## Future
@@ -12,10 +12,10 @@
 
 ## Configuration
 
-![avatar](https://github.com/liyikun/vscode-graphql-schema-typescript/blob/master/image/config.png)
+![config](https://raw.githubusercontent.com/liyikun/vscode-graphql-schema-typescript/master/image/config.png)
 
 
-### default config
+### config file example
 
 ```json
     {
