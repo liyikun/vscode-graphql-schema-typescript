@@ -1,4 +1,4 @@
-# gql-schema-to-typescript README
+# vscode-graphql-schema-to-typescript
 
 > extends by https://github.com/dangcuuson/graphql-schema-typescript
 
