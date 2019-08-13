@@ -1,0 +1,82 @@
+{
+	"name": "vscode-graphql-schema-to-typescript",
+	"displayName": "graphql-schema-to-typescript",
+	"description": "Simple Generate a typescript interface based on your graphql type",
+	"version": "0.0.1",
+	"publisher": "BigCat",
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.transform_gqltype"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.transform_gqltype",
+				"title": "Transform Gqltype to Typescript Interface"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "extension.transform_gqltype",
+					"group": "navigation",
+					"title": "Transform Gqltype to Typescript Interface"
+				}
+			]
+		},
+		"configuration": {
+			"title": "gql-schema-to-typescript",
+			"properties": {
+				"gstt.base.objectCode": {
+					"type": "string",
+					"default": "types",
+					"enum": [
+						"all",
+						"types",
+						"resolvers"
+					],
+					"enumDescriptions": [
+						"output types and resolvers",
+						"only output types",
+						"only output resolvers type"
+					]
+				},
+				"gstt.base.defaultConfig": {
+					"type": "string",
+					"default": "gql.json",
+					"description": "read config json from workcontext root"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.37.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2"
+	},
+	"dependencies": {
+		"@types/graphql": "^14.2.3",
+		"graphql": "^14.4.2",
+		"graphql-schema-typescript": "^1.2.9"
+	},
+	"license": "MIT"
+}
