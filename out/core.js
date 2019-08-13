@@ -119,4 +119,25 @@ function generateTSTypesAsString(schema, options) {
     });
 }
 exports.generateTSTypesAsString = generateTSTypesAsString;
+// this method is called when your extension is activated
+// your extension is activated the very first time the command is executed
+function TestEditor() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return "";
+        }
+        let selection = editor.selection;
+        let text = editor.document.getText(selection);
+        const options = yield initConfig();
+        try {
+            const content = yield generateTSTypesAsString(text, options);
+            return content;
+        }
+        catch (e) {
+            return e.message;
+        }
+    });
+}
+exports.TestEditor = TestEditor;
 //# sourceMappingURL=core.js.map

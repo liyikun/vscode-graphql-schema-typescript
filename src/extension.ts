@@ -1,37 +1,14 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { generateTSTypesAsString, initConfig } from './core';
-
-
-
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-
-export async function TestEditor() : Promise<string> {
-	let editor = vscode.window.activeTextEditor;
-
-	if(!editor) {
-		return "";
-	}
-
-	let selection = editor.selection;
-
-	let text = editor.document.getText(selection);
-
-	const options = await initConfig();
-
-	try {
-		const content = await generateTSTypesAsString(text, options);
-		return content;
-	} catch(e) {
-		return e.message as string;
-	}
-}
+import { TestEditor } from './core';
 
 
 export function activate(context: vscode.ExtensionContext) {
-	let disposable = vscode.commands.registerCommand('extension.transform_gqltype', () => {
+
+	console.log('Congratulations, graphql transform ts is run');
+
+	let disposable = vscode.commands.registerCommand("graphql-transform.run", () => {
 		TestEditor().then((text) => {
 			vscode.env.clipboard.writeText(text);
 			vscode.window.showInformationMessage("success transform and copy your clipboard");

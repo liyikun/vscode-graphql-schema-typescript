@@ -142,3 +142,27 @@ export async function generateTSTypesAsString(schema: string, options: OptionsCo
 
 
 
+// this method is called when your extension is activated
+// your extension is activated the very first time the command is executed
+
+export async function TestEditor() : Promise<string> {
+	let editor = vscode.window.activeTextEditor;
+
+	if(!editor) {
+		return "";
+	}
+
+	let selection = editor.selection;
+
+	let text = editor.document.getText(selection);
+
+	const options = await initConfig();
+
+	try {
+		const content = await generateTSTypesAsString(text, options);
+		return content;
+	} catch(e) {
+		return e.message as string;
+	}
+}
+
