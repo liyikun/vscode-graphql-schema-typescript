@@ -79,5 +79,9 @@
 		"graphql-schema-typescript": "^1.2.9",
 		"typescript": "^3.3.1"
 	},
-	"license": "MIT"
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/liyikun/vscode-graphql-schema-typescript"
+	}
 }
